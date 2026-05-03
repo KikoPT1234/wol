@@ -6,7 +6,7 @@ COPY . .
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt update && apt install -y --no-install-recommends \
+RUN apk update && apt add \
     wakeonlan
 RUN chmod +x shutdown.sh
 RUN chmod +x start.sh
