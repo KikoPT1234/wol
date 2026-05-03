@@ -4,7 +4,10 @@ WORKDIR /app
 
 COPY . .
 
-RUN apt install wakeonlan
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt update && apt install -y --no-install-recommends \
+    wakeonlan
 RUN chmod +x shutdown.sh
 RUN chmod +x start.sh
 RUN npm ci --omit=dev
